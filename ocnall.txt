@@ -1,0 +1,94 @@
+2A. To calculate NA acceptance angle
+
+clc;
+clear all;
+close all;
+prompt='enter the value of n1'
+n1 = input(prompt);
+prompt='enter value of n2'
+n2 = input(prompt)
+lambda=1.1;
+na=sqrt((n1.^2)-(n2^2));
+theta=asin(na);
+beta=((2*pi*n1)/lambda)*cos(theta);
+na
+theta
+beta
+
+2B. To find MFD of single mode fibre
+
+clc;
+clear all;
+close all;
+n1=input('enter index of core');
+n2=input('enter index of cladding');
+d=input('enter diameter');
+l=input('enter operating wavelength');
+na=sqrt((n1.^2)-(n2.^2));
+na
+d=d*1000;
+Vn=(pi*d*na/l);
+Vn
+mfd=d*(0.65 + (1.169/(Vn.^1.5)) + (2.879/(Vn.^6)));
+mfd = mfd/1000
+mfd
+
+3. Power Budget analysis
+
+clc;
+clear all;
+close all;
+
+%power budget
+N=[5 10 50];
+alpha=input('enter attenuation in db per km');
+ltp=input('enter the coupling loss in db');
+lth=input('enter the coupling throughput in db');
+li=input('intrinsic coupling loss in db');
+lc=input('coupler to fibre loss in db');
+l=input('link length in km');
+FL=alpha*l    %fibre loss in db
+Pbudget=N*[(alpha*l+2*lc+li+lth)]-alpha*l-2*lth+2*ltp
+
+%total optical power loss
+SM=input('enter the system margin');
+alpha2=input('attenuation in db');
+l2=input('enter the length of transmission path in km');
+lc2=input('enter the connector loss in db');
+Pt=(2*lc2+alpha2*l2+SM)
+
+6. Study of cutoff wavelength of photodiode
+
+clc;
+clear all;
+close all;
+h = 6.625*(10^-34);
+c = 3*(10^8);
+Eg = 1.43*1.6*(10^-19);
+lambdaC = h*c/Eg;
+disp(LambdaC, 'cut off wavelength of photodiode in meters = ')
+
+8. Coupling loss, inserion loss, return loss,
+
+clc;
+clear all;
+close all;
+p0=('enter value of p0 = ');
+p1=('enter value of p1 = ');
+p2=('enter value of p2 = ');
+p3=('enter value of p3 = ');
+coupling_ratio = (p2/(p1+p2)*100);
+excess_loss = 10*log(p0/(p1+p2));
+insertion_loss_01 = 10*log(p0/p1);
+insertion_loss_02 = 10*log(p0/p2);
+return_loss = 10*log(p3/p0);
+disp('coupling ratio');
+disp(coupling ratio);
+disp('excess loss in db');
+disp(excess loss);
+disp('insertion loss (port 0 to 1) in db');
+disp(insertion_loss_01);
+disp('insertion loss (port 0 to 2) in db');
+disp(insertion_loss_02);
+disp('return loss in db');
+disp(return_loss);
