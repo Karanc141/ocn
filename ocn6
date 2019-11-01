@@ -1,0 +1,10 @@
+6. Study of cutoff wavelength of photodiode
+
+clc;
+clear all;
+close all;
+h = 6.625*(10^-34);
+c = 3*(10^8);
+Eg = 1.43*1.6*(10^-19);
+lambdaC = h*c/Eg;
+disp(LambdaC, 'cut off wavelength of photodiode in meters = ')
