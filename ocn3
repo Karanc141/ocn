@@ -1,0 +1,23 @@
+3. Power Budget analysis
+
+clc;
+clear all;
+close all;
+
+%power budget
+N=[5 10 50];
+alpha=input('enter attenuation in db per km');   %0.4
+ltp=input('enter the coupling loss in db');   %10
+lth=input('enter the coupling throughput in db');   %0.9
+li=input('intrinsic coupling loss in db');   %0.5
+lc=input('coupler to fibre loss in db');   %1.0
+l=input('link length in km');   %0.5
+FL=alpha*l    %fibre loss in db
+Pbudget=N*[(alpha*l+2*lc+li+lth)]-alpha*l-2*lth+2*ltp
+
+%total optical power loss
+SM=input('enter the system margin');    %6
+alpha2=input('attenuation in db');           %3.5
+l2=input('enter the length of transmission path in km');      %6
+lc2=input('enter the connector loss in db');            %1
+Pt=(2*lc2+alpha2*l2+SM)
