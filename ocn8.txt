@@ -1,0 +1,27 @@
+8. Coupling loss, inserion loss, return loss,
+
+clc;
+clear all;
+close all;
+p0=('enter value of p0 = ');    %200*10^-6
+p1=('enter value of p1 = ');     %90*10^-6
+p2=('enter value of p2 = ');      %85*10^-6
+p3=('enter value of p3 = ');       %6.4*!0^-6
+
+
+coupling_ratio = (p2/(p1+p2)*100);
+excess_loss = 10*log(p0/(p1+p2));
+insertion_loss_01 = 10*log(p0/p1);
+insertion_loss_02 = 10*log(p0/p2);
+return_loss = 10*log(p3/p0);
+
+disp('coupling ratio');
+disp(coupling ratio);
+disp('excess loss in db');
+disp(excess loss);
+disp('insertion loss (port 0 to 1) in db');
+disp(insertion_loss_01);
+disp('insertion loss (port 0 to 2) in db');
+disp(insertion_loss_02);
+disp('return loss in db');
+disp(return_loss)
