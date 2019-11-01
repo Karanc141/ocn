@@ -1,0 +1,18 @@
+
+2B. To find MFD of single mode fibre
+
+clc;
+clear all;
+close all;
+n1=input('enter index of core');   %1.4
+n2=input('enter index of cladding');    %1.38
+d=input('enter diameter');   %6*10^-6
+l=input('enter operating wavelength');    %50*10^-9
+na=sqrt((n1.^2)-(n2.^2));
+na
+d=d*1000;
+Vn=(pi*d*na/l);
+Vn
+mfd=d*(0.65 + (1.169/(Vn.^1.5)) + (2.879/(Vn.^6)));
+mfd = mfd/1000;
+mfd
