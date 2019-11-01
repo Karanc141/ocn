@@ -1,0 +1,16 @@
+2A. To calculate NA acceptance angle
+
+clc;
+clear all;
+close all;
+prompt='enter the value of n1'
+n1 = input(prompt);  %1.5
+prompt='enter value of n2'
+n2 = input(prompt)         %1.4
+lambda=1.1;
+na=sqrt((n1.^2)-(n2^2));
+theta=asin(na);
+beta=((2*pi*n1)/lambda)*cos(theta);
+na
+theta
+beta
